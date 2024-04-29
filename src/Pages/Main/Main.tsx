@@ -4,7 +4,7 @@ import Dashboard from "../Dashboard/Dashboard";
 
 const Main: React.FC = () => {
   return (
-    <main className="lg:ml-64">
+    <main className="lg:ml-64 h-screen">
       <Navbar />
       <Dashboard />
     </main>
