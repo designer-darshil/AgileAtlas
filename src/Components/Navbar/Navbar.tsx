@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
         </div>
         <input
           type="text"
-          className="w-full focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent"
+          className="w-full bg-body focus:outline-none focus:ring-2 focus:ring-body focus:border-transparent"
           placeholder="Search here.."
         />
       </div>

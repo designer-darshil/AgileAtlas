@@ -5,11 +5,13 @@ import CompanyProfit from "../../assets/CompanyProfit.svg";
 import AllocatedBudget from "../../assets/AllocatedBudget.svg";
 import TotalCashback from "../../assets/AllocatedBudget.svg";
 import DownProgress from "../../assets/DownProgress.svg";
+import BarChart from "../../Components/Charts/BarChart";
+import LineChart from "../../Components/Charts/LineChart";
 
 const Dashboard: React.FC = () => {
   return (
     <>
-      <div className="w-full h-full p-8">
+      <div className="w-full h-[100%-88px] p-8">
         <div className="text-start mb-6">
           <h1 className="text-2xl max-md:text-lg text-black font-semibold">
             Dashboard
@@ -18,8 +20,8 @@ const Dashboard: React.FC = () => {
             Here is the summary of overall data
           </h6>
         </div>
-        <div className="grid grid-cols-4 max-xl:grid-cols-2 max-lg:grid-cols-2 max-md:grid-cols-1 gap-4">
-          <div className="bg-white rounded-lg shadow-md p-4 text-start">
+        <div className="grid grid-cols-4 max-xl:grid-cols-2 max-lg:grid-cols-2 max-md:grid-cols-1 gap-4 mb-10">
+          <div className="bg-white rounded-lg p-4 text-start">
             <div className="flex items-center gap-3 mb-5">
               <img src={SendMoney} alt="" />
 
@@ -33,7 +35,7 @@ const Dashboard: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-lg shadow-md p-4 text-start">
+          <div className="bg-white rounded-lg p-4 text-start">
             <div className="flex items-center gap-3 mb-5">
               <img src={CompanyProfit} alt="" />
 
@@ -47,7 +49,7 @@ const Dashboard: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-lg shadow-md p-4 text-start">
+          <div className="bg-white rounded-lg p-4 text-start">
             <div className="flex items-center gap-3 mb-5">
               <img src={AllocatedBudget} alt="" />
 
@@ -61,7 +63,7 @@ const Dashboard: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-lg shadow-md p-4 text-start">
+          <div className="bg-white rounded-lg p-4 text-start">
             <div className="flex items-center gap-3 mb-5">
               <img src={TotalCashback} alt="" />
 
@@ -74,6 +76,36 @@ const Dashboard: React.FC = () => {
                 <span className="text-lg text-success">+2,74%</span>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 max-lg:grid-cols-1 max-md:grid-cols-1 gap-4">
+          <div className="bg-white rounded-lg p-4 text-start">
+            <div className="flex items-center justify-between gap-3 mb-5">
+              <h1 className="text-black text-xl font-bold">Monthly Spend</h1>
+              <h1 className="text-gray">Monthly</h1>
+            </div>
+            <BarChart />
+          </div>
+          <div className="bg-white rounded-lg p-4 text-start">
+            <div className="flex items-center gap-3 mb-5">
+              <h1 className="text-black text-xl font-bold">Balance</h1>
+              <h1 className="text-gray">February Spend</h1>
+            </div>
+            <LineChart />
+          </div>
+          <div className="bg-white rounded-lg p-4 text-start">
+            <div className="flex items-center justify-between gap-3 mb-5">
+              <h1 className="text-black text-xl font-bold">Monthly Spend</h1>
+              <h1 className="text-gray">Monthly</h1>
+            </div>
+            <BarChart />
+          </div>
+          <div className="bg-white rounded-lg p-4 text-start">
+            <div className="flex items-center gap-3 mb-5">
+              <h1 className="text-black text-xl font-bold">Balance</h1>
+              <h1 className="text-gray">February Spend</h1>
+            </div>
+            <LineChart />
           </div>
         </div>
       </div>
