@@ -16,7 +16,8 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.0",
-    "remixicon": "^4.3.0"
+    "remixicon": "^4.3.0",
+    "sass": "^1.77.6"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",

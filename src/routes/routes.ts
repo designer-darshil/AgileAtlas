@@ -5,6 +5,7 @@ export const routes = {
   transaction: "/Transaction",
   budget: "/Card & Budget",
   subscription: "/Subscription",
+  addsubscription: "/addSubscription",
   employees: "/Employees",
   documents: "/Documents",
   analytics: "/Analytics",

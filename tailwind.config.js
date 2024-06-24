@@ -9,8 +9,6 @@ export default {
         'white': '#ffffff',
         'success': '#27C661',
         'danger': '#F55F5F',
-        'gray': '#747682',
-    
       },
     },
   },

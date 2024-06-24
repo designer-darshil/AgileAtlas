@@ -28,16 +28,22 @@ export const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: "top" as const,
-    },
-    title: {
-      display: true,
-      text: "Chart.js Line Chart",
+      position: "bottom" as const,
     },
   },
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+const labels = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "June",
+  "July",
+  "Aug",
+  "Sep",
+];
 
 export const data = {
   labels,
@@ -46,8 +52,8 @@ export const data = {
       fill: true,
       label: "Dataset 2",
       data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      borderColor: "rgb(53, 162, 235)",
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
+      borderColor: "#23C55E",
+      backgroundColor: "rgba(35, 197, 94, 0.5)",
     },
   ],
 };

@@ -10,7 +10,7 @@ const Sidebar: React.FC = () => {
         <div className="w-full flex items-center justify-center">
           <button
             id="toggleSidebar"
-            className="lg:hidden fixed top-4 right-4 z-20 bg-black p-2 rounded-md shadow-md"
+            className="lg:hidden block fixed top-4 right-4 z-20 p-2 rounded-md shadow-md"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -20,9 +20,9 @@ const Sidebar: React.FC = () => {
               stroke="black"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M4 6h16M4 12h16M4 18h16"
               />
             </svg>
