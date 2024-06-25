@@ -2,11 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import WeaveLogo from "../../assets/WeaveLogo.svg";
 import updateRocket from "../../assets/Update.png";
+import { routes } from "../../routes/routes";
 
 const Sidebar: React.FC = () => {
   return (
     <aside className="bg-white text-gray p-4 flex flex-col justify-between items-center min-h-screen fixed top-0 left-0 transition-transform duration-300 transform -translate-x-full lg:translate-x-0 lg:w-64 z-10">
-      <div className="w-full flex flex-col items-center justify-center gap-10">
+      <div className="w-full flex flex-col items-center justify-center gap-8">
         <div className="w-full flex items-center justify-center">
           <button
             id="toggleSidebar"
@@ -27,14 +28,14 @@ const Sidebar: React.FC = () => {
               />
             </svg>
           </button>
-          <div className="">
-            <img src={WeaveLogo} alt="" />
-          </div>
+          <NavLink to={routes.default} className="m-3">
+            <img src={WeaveLogo} alt="logo" />
+          </NavLink>
         </div>
         <ul className="w-full space-y-3 text-start">
           <li>
             <NavLink
-              to="/dashboard"
+              to={routes.default}
               className={({ isActive }) =>
                 isActive
                   ? "bg-primary fill-white text-white p-3 rounded-lg flex items-center gap-3"
@@ -70,7 +71,7 @@ const Sidebar: React.FC = () => {
           </li>
           <li>
             <NavLink
-              to="/request"
+              to={routes.request}
               className={({ isActive }) =>
                 isActive
                   ? "bg-primary fill-white text-white p-3 rounded-lg flex items-center gap-3"
@@ -102,7 +103,7 @@ const Sidebar: React.FC = () => {
           </li>
           <li>
             <NavLink
-              to="/balance"
+              to={routes.balance}
               className={({ isActive }) =>
                 isActive
                   ? "bg-primary fill-white text-white p-3 rounded-lg flex items-center gap-3"
@@ -142,7 +143,7 @@ const Sidebar: React.FC = () => {
           </li>
           <li>
             <NavLink
-              to="/transaction"
+              to={routes.transaction}
               className={({ isActive }) =>
                 isActive
                   ? "bg-primary fill-white text-white p-3 rounded-lg flex items-center gap-3"
@@ -182,7 +183,7 @@ const Sidebar: React.FC = () => {
           </li>
           <li>
             <NavLink
-              to="/budget"
+              to={routes.budget}
               className={({ isActive }) =>
                 isActive
                   ? "bg-primary fill-white text-white p-3 rounded-lg flex items-center gap-3"
@@ -250,7 +251,7 @@ const Sidebar: React.FC = () => {
           </li>
           <li>
             <NavLink
-              to="/employees"
+              to={routes.employees}
               className={({ isActive }) =>
                 isActive
                   ? "bg-primary fill-white text-white p-3 rounded-lg flex items-center gap-3"
@@ -286,7 +287,7 @@ const Sidebar: React.FC = () => {
           </li>
           <li>
             <NavLink
-              to="/documents"
+              to={routes.documents}
               className={({ isActive }) =>
                 isActive
                   ? "bg-primary fill-white text-white p-3 rounded-lg flex items-center gap-3"
@@ -322,7 +323,7 @@ const Sidebar: React.FC = () => {
           </li>
           <li>
             <NavLink
-              to="/analytics"
+              to={routes.analytics}
               className={({ isActive }) =>
                 isActive
                   ? "bg-primary fill-white text-white p-3 rounded-lg flex items-center gap-3"
@@ -354,7 +355,7 @@ const Sidebar: React.FC = () => {
           </li>
         </ul>
       </div>
-      <div className="bg-[#03091D] w-full h-full p-5 px-8 rounded-xl relative mb-6">
+      <div className="bg-[#03091D] w-full h-full p-5 px-8 rounded-xl relative mb-4">
         <div className="absolute -top-10 left-1/2 -translate-x-1/2">
           <img src={updateRocket} alt="" />
         </div>

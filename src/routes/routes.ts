@@ -1,5 +1,5 @@
 export const routes = {
-  default: "/dashboard",
+  default: "/",
   request: "/Request",
   balance: "/Balance",
   transaction: "/Transaction",

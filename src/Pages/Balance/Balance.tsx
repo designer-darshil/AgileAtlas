@@ -17,17 +17,20 @@ export const data = {
   ],
 };
 const Balance: React.FC = () => {
+  
   return (
     <>
       <div className="p-8">
-        <div className="grid grid-cols-3 gap-6 mb-6">
+        <div className="grid grid-cols-3 max-md:grid-cols-1 gap-6 mb-6">
           <div className="bg-white p-3 rounded-lg">
             <div className="card-header flex items-center justify-between mb-4">
               <h5 className="text-lg">Available Balance</h5>
-              <i className="ri-more-fill text-black text-2xl"></i>
+              <button className="p-2">
+                <i className="ri-more-fill text-black text-2xl"></i>
+              </button>
             </div>
             <div>
-              <Doughnut data={data} />
+              <Doughnut data={data} className="w-full" />
             </div>
           </div>
           <div className="col-span-2 bg-white p-3 rounded-lg">
@@ -40,8 +43,8 @@ const Balance: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-6">
-          <div className="col-span-2 bg-white p-3 rounded-lg">
+        <div className="grid grid-cols-3 max-md:grid-cols-1 gap-6">
+          <div className="col-span-2 max-md:w-full bg-white p-3 rounded-lg">
             <div className="card-header flex items-center justify-between mb-4">
               <h5 className="text-lg">Recent Transaction</h5>
               <i className="ri-more-fill text-black text-2xl"></i>
@@ -85,7 +88,7 @@ const Balance: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-lg">
+          <div className="bg-white max-md:w-full p-6 rounded-lg">
             <div className="max-w-sm w-full mx-auto">
               <img src={NeedHelp} className="mx-auto mb-4" alt="" />
               <div>
