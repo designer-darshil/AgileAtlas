@@ -35,7 +35,7 @@ const Sidebar: React.FC = () => {
           <NavLink
             to={routes.default}
             className={({ isActive }) =>
-              `p-3 text-2xl block w-100 relative ${
+              `p-3 text-2xl block w-full relative text-center ${
                 isActive ? "border-l-4 border-l-white fill-white" : ""
               }`
             }

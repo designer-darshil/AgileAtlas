@@ -27,5 +27,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src", "@/components/ui/button.tsx", "@/components/ui/calendar.tsx", "@/components/ui/card.tsx", "@/components/ui/dropdown-menu.tsx", "@/components/ui/popover.tsx"]
 }
