@@ -1,61 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import UserAvatar from "../../assets/UserAvatar.png";
-interface ButtonProps {
-  onClick: () => void;
-}
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/Components/ui/dropdown-menu";
 
-interface DropdownMenuProps {
-  items: string[];
-}
 const Navbar: React.FC = () => {
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-
-  const toggleDropdown = (index: string) => {
-    setActiveDropdown(activeDropdown === index ? null : index);
-  };
-  const NotificationButton: React.FC<ButtonProps> = ({ onClick }) => (
-    <button
-      onClick={onClick}
-      className="rounded-lg w-12 h-12 flex items-center justify-center border-2 border-[#F2F4FA] hover:bg-[#fbfbff]"
-    >
-      <i className="ri-notification-line text-xl"></i>
-    </button>
-  );
-
-  const MessageButton: React.FC<ButtonProps> = ({ onClick }) => (
-    <button
-      onClick={onClick}
-      className="rounded-lg w-12 h-12 flex items-center justify-center border-2 border-[#F2F4FA] hover:bg-[#fbfbff]"
-    >
-      <i className="ri-chat-1-line text-xl"></i>
-    </button>
-  );
-  const UserProfileButton: React.FC<ButtonProps> = ({ onClick }) => (
-    <button
-      onClick={onClick}
-      className="flex items-center justify-start gap-3 cursor-pointer"
-    >
-      <img src={UserAvatar} alt="" />
-      <div className="text-start max-md:hidden">
-        <h6 className="text-black font-semibold">Niko Flamini</h6>
-        <p className="text-xs">nfilamini@yahoo.com</p>
-      </div>
-    </button>
-  );
-
-  const DropdownMenu: React.FC<DropdownMenuProps> = ({ items }) => (
-    <ul className="absolute top-14 w-56 z-10 shadow-lg bg-white rounded-xl text-start">
-      {items.map((item, idx) => (
-        <li key={idx} className="border-b border-b-gray border-opacity-10">
-          <a className="block w-full h-full p-3" href="#">
-            {item}
-          </a>
-        </li>
-      ))}
-    </ul>
-  );
   return (
-    <header className="bg-white p-4 lg:px-8 lg:py-4 lg:sticky lg:top-0 lg:z-20 grid grid-cols-2 w-full justify-between">
+    <header className="border-b border-b-[#222222] p-4 grid grid-cols-2 w-full justify-between">
       <div className="bg-body relative rounded-lg p-4 flex items-center gap-3 w-64">
         <div>
           <svg
@@ -85,26 +41,57 @@ const Navbar: React.FC = () => {
       <div className="flex items-center justify-end gap-4">
         <ul className="flex items-center gap-4">
           <li className="relative">
-            <NotificationButton
-              onClick={() => toggleDropdown("notifications")}
-            />
-            {activeDropdown === "notifications" && (
-              <DropdownMenu
-                items={["Notification 1", "Notification 2", "Notification 3"]}
-              />
-            )}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center justify-start gap-3 cursor-pointer">
+                <button className="rounded-lg w-12 h-12 flex items-center justify-center border-2 border-[#F2F4FA] hover:bg-[#fbfbff]">
+                  <i className="ri-chat-1-line text-xl"></i>
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center">
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Profile</DropdownMenuItem>
+                <DropdownMenuItem>Billing</DropdownMenuItem>
+                <DropdownMenuItem>Team</DropdownMenuItem>
+                <DropdownMenuItem>Subscription</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </li>
           <li className="relative">
-            <MessageButton onClick={() => toggleDropdown("messages")} />
-            {activeDropdown === "messages" && (
-              <DropdownMenu items={["Message 1", "Message 2", "Message 3"]} />
-            )}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center justify-start gap-3 cursor-pointer">
+                <button className="rounded-lg w-12 h-12 flex items-center justify-center border-2 border-[#F2F4FA] hover:bg-[#fbfbff]">
+                  <i className="ri-notification-line text-xl"></i>
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center">
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Profile</DropdownMenuItem>
+                <DropdownMenuItem>Billing</DropdownMenuItem>
+                <DropdownMenuItem>Team</DropdownMenuItem>
+                <DropdownMenuItem>Subscription</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </li>
           <li className="relative">
-            <UserProfileButton onClick={() => toggleDropdown("userProfile")} />
-            {activeDropdown === "userProfile" && (
-              <DropdownMenu items={["Profile", "Settings", "Logout"]} />
-            )}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center justify-start gap-3 cursor-pointer">
+                <img src={UserAvatar} alt="" />
+                <div className="text-start max-md:hidden">
+                  <h6 className="text-black font-semibold">Niko Flamini</h6>
+                  <p className="text-xs">nfilamini@yahoo.com</p>
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center">
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Profile</DropdownMenuItem>
+                <DropdownMenuItem>Billing</DropdownMenuItem>
+                <DropdownMenuItem>Team</DropdownMenuItem>
+                <DropdownMenuItem>Subscription</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </li>
         </ul>
       </div>
