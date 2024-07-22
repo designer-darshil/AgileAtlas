@@ -14,20 +14,22 @@ import {
   DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/Components/ui/tabs";
+import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
+import { RefreshCcw } from "lucide-react";
 
-import {
-  Bar,
-  BarChart,
-  Label,
-  Rectangle,
-  ReferenceLine,
-  XAxis,
-} from "recharts";
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/Components/ui/chart";
+// import {
+//   Bar,
+//   BarChart,
+//   Label,
+//   Rectangle,
+//   ReferenceLine,
+//   XAxis,
+// } from "recharts";
+// import {
+//   ChartContainer,
+//   ChartTooltip,
+//   ChartTooltipContent,
+// } from "@/Components/ui/chart";
 
 const Dashboard: React.FC = () => {
   return (
@@ -39,14 +41,16 @@ const Dashboard: React.FC = () => {
               <CardTitle>Time Tracker</CardTitle>
               <CardDescription>
                 <DropdownMenu>
-                  <DropdownMenuTrigger className="bg-dark-mode w-10 h-10 rounded-lg">
-                    <i className="ri-more-fill text-gray-90 text-xl"></i>
+                  <DropdownMenuTrigger className="bg-stroke-90 dark:bg-dark-mode w-10 h-10 rounded-lg">
+                    <i className="ri-more-fill text-gray-60 dark:text-gray-90 text-xl"></i>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    <DropdownMenuItem>Option 1</DropdownMenuItem>
-                    <DropdownMenuItem>Option 2</DropdownMenuItem>
-                    <DropdownMenuItem>Option 3</DropdownMenuItem>
-                    <DropdownMenuItem>Option 4</DropdownMenuItem>
+                  <DropdownMenuContent className="dark:bg-gray-10">
+                    <DropdownMenuItem className="text-gray-10">
+                      <RefreshCcw />
+                      Replace Widget
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>Delete Widget</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </CardDescription>
@@ -74,7 +78,7 @@ const Dashboard: React.FC = () => {
                   </TabsTrigger>
                 </TabsList>
                 <TabsContent className="p-4" value="summary">
-                  <ChartContainer
+                  {/* <ChartContainer
                     config={{
                       steps: {
                         label: "Steps",
@@ -171,7 +175,7 @@ const Dashboard: React.FC = () => {
                         />
                       </ReferenceLine>
                     </BarChart>
-                  </ChartContainer>
+                  </ChartContainer> */}
                 </TabsContent>
                 <TabsContent className="p-4" value="projects">
                   Change your password here.

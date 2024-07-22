@@ -6,9 +6,9 @@ import RightBar from "@/Components/RightBar/RightBar";
 
 const Layout: React.FC = () => {
   return (
-    <div className="grid grid-cols-[86px_1fr_320px] h-screen">
+    <div className="grid grid-cols-1 h-screen">
       <Sidebar />
-      <main className="h-full">
+      <main className="h-full sm:pl-20 sm:pr-96">
         <Navbar />
         <div className="p-6">
           <Outlet />
