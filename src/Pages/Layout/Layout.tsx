@@ -3,19 +3,29 @@ import Sidebar from "@/Components/Sidebar/Sidebar";
 import Navbar from "@/Components/Navbar/Navbar";
 import { Outlet } from "react-router-dom";
 import RightBar from "@/Components/RightBar/RightBar";
+import { useLocation } from "react-router-dom";
 
 const Layout: React.FC = () => {
+  const location = useLocation();
+  const isDefaultPage = location.pathname === "/";
   return (
-    <div className="grid grid-cols-1 h-screen">
-      <Sidebar />
-      <main className="h-full sm:pl-20 sm:pr-96">
-        <Navbar />
-        <div className="p-6">
-          <Outlet />
-        </div>
-      </main>
-      <RightBar />
-    </div>
+    <>
+      <div>
+        <Sidebar />
+        <main
+          className={`h-full ${
+            isDefaultPage ? "sm:pl-20 sm:pr-96" : "sm:pl-20"
+          }`}
+        >
+          {isDefaultPage && <Navbar />}
+
+          <div className="p-6">
+            <Outlet />
+          </div>
+        </main>
+        {isDefaultPage && <RightBar />}
+      </div>
+    </>
   );
 };
 

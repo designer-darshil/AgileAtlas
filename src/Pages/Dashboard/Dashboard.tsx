@@ -18,7 +18,6 @@ import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -26,44 +25,49 @@ import {
 } from "@/Components/ui/table";
 import { Checkbox } from "@/Components/ui/checkbox";
 import { CalendarDays, Flag, Tag } from "lucide-react";
-
-// import {
-//   Bar,
-//   BarChart,
-//   Label,
-//   Rectangle,
-//   ReferenceLine,
-//   XAxis,
-// } from "recharts";
-// import {
-//   ChartContainer,
-//   ChartTooltip,
-//   ChartTooltipContent,
-// } from "@/Components/ui/chart";
+import { Pie, PieChart } from "recharts";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/Components/ui/chart";
+const chartData = [
+  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
+  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
+];
+const chartConfig = {
+  chrome: {
+    color: "#101214",
+  },
+  safari: {
+    color: "#D2F159",
+  },
+} satisfies ChartConfig;
 
 const Dashboard: React.FC = () => {
   return (
     <>
       <div className="grid grid-cols-3 max-md:grid-cols-1 gap-6 mb-6">
         <div className="col-span-2 max-md:col-span-3">
-          <Card>
+          <Card className="h-full">
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle className="text-lg">Time Tracker</CardTitle>
               <CardDescription>
                 <DropdownMenu>
-                  <DropdownMenuTrigger className="bg-stroke-90 dark:bg-dark-mode w-10 h-10 rounded-lg focus-visible:outline-none">
-                    <i className="ri-more-fill text-gray-60 dark:text-gray-90 text-xl"></i>
+                  <DropdownMenuTrigger className="bg-dark-mode w-10 h-10 rounded-lg focus-visible:outline-none">
+                    <i className="ri-more-fill text-gray-90 text-xl"></i>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
-                    className="dark:bg-gray-10 border-0 p-3 rounded-xl"
+                    className="bg-gray-10 border-0 p-3 rounded-xl"
                     align="end"
                   >
-                    <DropdownMenuItem className="text-gray-10 dark:text-gray-90 dark:focus:bg-transparent dark:focus:text-primary rounded-lg p-3 flex items-center justify-start gap-2 text-base">
+                    <DropdownMenuItem className="text-gray-90 focus:bg-transparent focus:text-primary rounded-lg p-3 flex items-center justify-start gap-2 text-base">
                       <i className="ri-refresh-line"></i>
                       Replace Widget
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem className="text-gray-10 dark:text-gray-90 dark:focus:bg-transparent dark:focus:text-primary rounded-lg p-3 flex items-center justify-start gap-2 text-base">
+                    <DropdownMenuItem className="text-gray-90 focus:bg-transparent focus:text-primary rounded-lg p-3 flex items-center justify-start gap-2 text-base">
                       <i className="ri-delete-bin-6-line"></i>
                       Delete Widget
                     </DropdownMenuItem>
@@ -75,19 +79,19 @@ const Dashboard: React.FC = () => {
               <Tabs defaultValue="summary" className="w-full">
                 <TabsList className="dark:bg-transparent border-b border-b-gray-20 rounded-none p-0 w-full h-auto justify-start gap-6">
                   <TabsTrigger
-                    className="px-0 py-5 capitalize data-[state=active]:dark:bg-transparent dark:text-dark-gray-90 data-[state=active]:border-b data-[state=active]:border-b-white"
+                    className="px-0 py-5 capitalize data-[state=active]:bg-transparent data-[state=active]:text-white data-[state=active]:border-b data-[state=active]:border-b-white"
                     value="summary"
                   >
                     summary
                   </TabsTrigger>
                   <TabsTrigger
-                    className="px-0 py-5 capitalize data-[state=active]:dark:bg-transparent dark:text-dark-gray-90 data-[state=active]:border-b data-[state=active]:border-b-white"
+                    className="px-0 py-5 capitalize data-[state=active]:bg-transparent data-[state=active]:text-white data-[state=active]:border-b data-[state=active]:border-b-white"
                     value="projects"
                   >
                     projects
                   </TabsTrigger>
                   <TabsTrigger
-                    className="px-0 py-5 capitalize data-[state=active]:dark:bg-transparent dark:text-dark-gray-90 data-[state=active]:border-b data-[state=active]:border-b-white"
+                    className="px-0 py-5 capitalize data-[state=active]:bg-transparent data-[state=active]:text-white data-[state=active]:border-b data-[state=active]:border-b-white"
                     value="tasks"
                   >
                     tasks
@@ -212,19 +216,19 @@ const Dashboard: React.FC = () => {
               <CardTitle className="text-lg">Productivity</CardTitle>
               <CardDescription>
                 <DropdownMenu>
-                  <DropdownMenuTrigger className="bg-stroke-90 dark:bg-dark-mode w-10 h-10 rounded-lg focus-visible:outline-none">
-                    <i className="ri-more-fill text-gray-60 dark:text-gray-90 text-xl"></i>
+                  <DropdownMenuTrigger className="bg-dark-mode w-10 h-10 rounded-lg focus-visible:outline-none">
+                    <i className="ri-more-fill text-gray-90 text-xl"></i>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
-                    className="dark:bg-gray-10 border-0"
+                    className="bg-gray-10 border-0"
                     align="end"
                   >
-                    <DropdownMenuItem className="text-gray-10 dark:text-gray-90 p-3 flex items-center justify-start gap-2 text-base">
+                    <DropdownMenuItem className="text-gray-90 p-3 flex items-center justify-start gap-2 text-base">
                       <i className="ri-refresh-line"></i>
                       Replace Widget
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem className="text-gray-10 dark:text-gray-90 p-3 flex items-center justify-start gap-2 text-base">
+                    <DropdownMenuItem className="text-gray-90 p-3 flex items-center justify-start gap-2 text-base">
                       <i className="ri-delete-bin-6-line"></i>
                       Delete Widget
                     </DropdownMenuItem>
@@ -233,30 +237,60 @@ const Dashboard: React.FC = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <p>Card Content</p>
+              <div className="grid grid-cols-2">
+                <div className="flex items-start flex-col justify-between h-full">
+                  <div className="text-start">
+                    <h1 className="text-4xl font-semibold mb-1">78.19%</h1>
+                    <p className="text-base text-[#545454]">Workload KPI</p>
+                  </div>
+                  <div className="text-start">
+                    <p className="text-base text-[#545454] mb-1">Compare</p>
+                    <p className="text-base text-white">
+                      <span className="text-primary-50">
+                        <i className="ri-arrow-down-circle-line"></i> 1.25%
+                      </span>{" "}
+                      vs Last month
+                    </p>
+                  </div>
+                </div>
+                <ChartContainer
+                  config={chartConfig}
+                  className="ms-auto aspect-square max-h-[170px] w-full"
+                >
+                  <PieChart>
+                    <ChartTooltip
+                      cursor={false}
+                      content={<ChartTooltipContent hideLabel />}
+                    />
+                    <Pie
+                      data={chartData}
+                      dataKey="visitors"
+                      nameKey="Workload KPI"
+                      innerRadius={35}
+                    />
+                  </PieChart>
+                </ChartContainer>
+              </div>
             </CardContent>
-            <CardFooter>
-              <p>Card Footer</p>
-            </CardFooter>
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle className="text-lg">Completed Task</CardTitle>
               <CardDescription>
                 <DropdownMenu>
-                  <DropdownMenuTrigger className="bg-stroke-90 dark:bg-dark-mode w-10 h-10 rounded-lg focus-visible:outline-none">
-                    <i className="ri-more-fill text-gray-60 dark:text-gray-90 text-xl"></i>
+                  <DropdownMenuTrigger className="bg-dark-mode w-10 h-10 rounded-lg focus-visible:outline-none">
+                    <i className="ri-more-fill text-gray-90 text-xl"></i>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
-                    className="dark:bg-gray-10 border-0"
+                    className="bg-gray-10 border-0"
                     align="end"
                   >
-                    <DropdownMenuItem className="text-gray-10 dark:text-gray-90 p-3 flex items-center justify-start gap-2 text-base">
+                    <DropdownMenuItem className="text-gray-90 p-3 flex items-center justify-start gap-2 text-base">
                       <i className="ri-refresh-line"></i>
                       Replace Widget
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem className="text-gray-10 dark:text-gray-90 p-3 flex items-center justify-start gap-2 text-base">
+                    <DropdownMenuItem className="text-gray-90 p-3 flex items-center justify-start gap-2 text-base">
                       <i className="ri-delete-bin-6-line"></i>
                       Delete Widget
                     </DropdownMenuItem>
@@ -283,28 +317,59 @@ const Dashboard: React.FC = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Table className="dark:bg-gray-10 rounded-xl overflow-hidden">
+          <Table className="bg-gray-10 rounded-xl overflow-hidden">
             <TableHeader className="text-start [&_tr]:border-b-gray-20">
-              <TableRow className="dark:hover:bg-gray-20 text-base">
-                <TableHead className="dark:text-white p-6 h-auto">
+              <TableRow className="hover:bg-gray-20 text-base">
+                <TableHead className="text-white p-6 h-auto">
                   Task Name
                 </TableHead>
-                <TableHead className="dark:text-white p-6 h-auto text-center">
+                <TableHead className="text-white p-6 h-auto text-center">
                   Assigned to
                 </TableHead>
-                <TableHead className="dark:text-white p-6 h-auto text-center">
+                <TableHead className="text-white p-6 h-auto text-center">
                   Due Date
                 </TableHead>
-                <TableHead className="dark:text-white p-6 h-auto text-center">
+                <TableHead className="text-white p-6 h-auto text-center">
                   Amount
                 </TableHead>
-                <TableHead className="dark:text-white p-6 h-auto text-center">
+                <TableHead className="text-white p-6 h-auto text-center">
                   Tags
                 </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody className="[&_tr]:border-b-gray-20">
-              <TableRow className="dark:hover:bg-gray-20 text-start text-base">
+              <TableRow className="hover:bg-gray-20 text-start text-base">
+                <TableCell className="text-white p-6 h-auto flex items-center gap-3">
+                  <Checkbox id="terms1" />
+                  <label htmlFor="terms1">
+                    Prepare high-fidelity wireframe landing
+                  </label>
+                </TableCell>
+                <TableCell className="dark:text-white p-6 h-auto text-center">
+                  <div className="flex items-center justify-center -space-x-3 overflow-hidden">
+                    <img
+                      className="inline-block h-9 w-9 m-1 rounded-full ring-2 ring-gray-20"
+                      src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      alt=""
+                    />
+                    <img
+                      className="inline-block h-9 w-9 m-1 rounded-full ring-2 ring-gray-20"
+                      src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      alt=""
+                    />
+                  </div>
+                </TableCell>
+                <TableCell className="dark:text-white p-6 h-auto text-center">
+                  <CalendarDays className="mx-auto" />
+                </TableCell>
+                <TableCell className="dark:text-white p-6 h-auto text-center">
+                  <Tag className="mx-auto" />
+                </TableCell>
+                <TableCell className="dark:text-red-500 p-6 h-auto text-center">
+                  <Flag className="mx-auto" />
+                </TableCell>
+              </TableRow>
+              <TableRow className="hover:bg-gray-20 text-start text-base">
                 <TableCell className="dark:text-white p-6 h-auto flex items-center gap-3">
                   <Checkbox id="terms1" />
                   <label htmlFor="terms1">
@@ -335,7 +400,7 @@ const Dashboard: React.FC = () => {
                   <Flag className="mx-auto" />
                 </TableCell>
               </TableRow>
-              <TableRow className="dark:hover:bg-gray-20 text-start text-base">
+              <TableRow className="hover:bg-gray-20 text-start text-base">
                 <TableCell className="dark:text-white p-6 h-auto flex items-center gap-3">
                   <Checkbox id="terms1" />
                   <label htmlFor="terms1">
@@ -366,7 +431,7 @@ const Dashboard: React.FC = () => {
                   <Flag className="mx-auto" />
                 </TableCell>
               </TableRow>
-              <TableRow className="dark:hover:bg-gray-20 text-start text-base">
+              <TableRow className="hover:bg-gray-20 text-start text-base">
                 <TableCell className="dark:text-white p-6 h-auto flex items-center gap-3">
                   <Checkbox id="terms1" />
                   <label htmlFor="terms1">
@@ -397,7 +462,7 @@ const Dashboard: React.FC = () => {
                   <Flag className="mx-auto" />
                 </TableCell>
               </TableRow>
-              <TableRow className="dark:hover:bg-gray-20 text-start text-base">
+              <TableRow className="hover:bg-gray-20 text-start text-base">
                 <TableCell className="dark:text-white p-6 h-auto flex items-center gap-3">
                   <Checkbox id="terms1" />
                   <label htmlFor="terms1">
@@ -428,38 +493,7 @@ const Dashboard: React.FC = () => {
                   <Flag className="mx-auto" />
                 </TableCell>
               </TableRow>
-              <TableRow className="dark:hover:bg-gray-20 text-start text-base">
-                <TableCell className="dark:text-white p-6 h-auto flex items-center gap-3">
-                  <Checkbox id="terms1" />
-                  <label htmlFor="terms1">
-                    Prepare high-fidelity wireframe landing
-                  </label>
-                </TableCell>
-                <TableCell className="dark:text-white p-6 h-auto text-center">
-                  <div className="flex items-center justify-center -space-x-3 overflow-hidden">
-                    <img
-                      className="inline-block h-9 w-9 m-1 rounded-full ring-2 ring-gray-20"
-                      src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="inline-block h-9 w-9 m-1 rounded-full ring-2 ring-gray-20"
-                      src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                  </div>
-                </TableCell>
-                <TableCell className="dark:text-white p-6 h-auto text-center">
-                  <CalendarDays className="mx-auto" />
-                </TableCell>
-                <TableCell className="dark:text-white p-6 h-auto text-center">
-                  <Tag className="mx-auto" />
-                </TableCell>
-                <TableCell className="dark:text-red-500 p-6 h-auto text-center">
-                  <Flag className="mx-auto" />
-                </TableCell>
-              </TableRow>
-              <TableRow className="dark:hover:bg-gray-20 text-start text-base">
+              <TableRow className="hover:bg-gray-20 text-start text-base">
                 <TableCell className="dark:text-white p-6 h-auto flex items-center gap-3">
                   <Checkbox id="terms1" />
                   <label htmlFor="terms1">
