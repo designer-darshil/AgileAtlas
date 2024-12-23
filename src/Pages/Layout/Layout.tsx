@@ -19,7 +19,7 @@ const Layout: React.FC = () => {
         >
           {isDefaultPage && <Navbar />}
 
-          <div className="p-6">
+          <div>
             <Outlet />
           </div>
         </main>

@@ -13,7 +13,9 @@ const RightBar: React.FC = () => {
         <div className="p-6 flex flex-col items-start justify-start gap-6">
           <Card className="dark:bg-gray-10 rounded-lg w-full">
             <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle className="text-lg">Notifications</CardTitle>
+              <CardTitle className="text-dark-gray-50 text-xl">
+                Notifications
+              </CardTitle>
               <CardDescription>
                 <a href="#">
                   <i className="ri-send-plane-2-line"></i>
@@ -75,7 +77,9 @@ const RightBar: React.FC = () => {
           </Card>
           <Card className="dark:bg-gray-10 rounded-lg w-full">
             <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle className="text-lg">Recent Activity</CardTitle>
+              <CardTitle className="text-dark-gray-50 text-xl">
+                Recent Activity
+              </CardTitle>
               <CardDescription>
                 <a href="#">
                   <i className="ri-send-plane-2-line"></i>
