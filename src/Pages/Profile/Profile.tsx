@@ -17,7 +17,7 @@ const Profile: React.FC = () => {
   `;
   return (
     <>
-      <div className="py-6 px-6">
+      <div className="py-6 px-6 border-b border-b-gray-20">
         <h5 className="text-xl font-semibold text-dark-gray-50">Profile</h5>
       </div>
       <div className="p-6">
@@ -65,9 +65,9 @@ const Profile: React.FC = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg">
+                <div className="text-lg">
                   <ReadMore text={longText} maxLength={345} />
-                </p>
+                </div>
               </CardContent>
             </Card>
 
@@ -312,7 +312,7 @@ const Profile: React.FC = () => {
               </Card>
             </div>
           </div>
-          <Card className="bg-gray-10 max-md:gc">
+          <Card className="bg-gray-10 max-md:col-span-2">
             <CardHeader>
               <CardTitle className="text-dark-gray-50 text-xl">
                 Recent Activity
