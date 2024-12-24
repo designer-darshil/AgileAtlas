@@ -47,9 +47,9 @@ const Profile: React.FC = () => {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
-                  <button className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
                     <Pen />
-                  </button>
+                  </div>
                 </TooltipTrigger>
                 <TooltipContent side="right">Edit Profile</TooltipContent>
               </Tooltip>

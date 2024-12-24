@@ -13,7 +13,7 @@ import { routes } from "@/routes/routes";
 const Sidebar: React.FC = () => {
   return (
     <aside className="fixed inset-y-0 left-0 z-10 hidden w-20 flex-col items-center border-r border-r-gray-20 bg-background sm:flex bg-base-black">
-      <nav className="flex flex-col items-center gap-4 w-full">
+      <nav className="flex flex-col items-center gap-4 w-full h-full">
         <div className="p-5 w-full flex items-center justify-center">
           <NavLink
             to="#"
@@ -310,6 +310,59 @@ const Sidebar: React.FC = () => {
                 </NavLink>
               </TooltipTrigger>
               <TooltipContent side="right">Settings</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
+        <div className="mt-auto mb-4">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <NavLink
+                  to={routes.faqs}
+                  className={({ isActive }) =>
+                    `relative ${
+                      isActive
+                        ? "fill-white after:bg-white after:w-[2px] after:absolute after:h-full after:top-0 after:-left-10"
+                        : "fill-dark-gray-80"
+                    }`
+                  }
+                >
+                  <svg
+                    width="21"
+                    height="21"
+                    viewBox="0 0 21 21"
+                    fill="fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      opacity="0.4"
+                      cx="10.5"
+                      cy="10.5"
+                      r="10"
+                      fill="fill-current"
+                    />
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M10.5 6.25C9.80964 6.25 9.25 6.80964 9.25 7.5C9.25 7.91421 8.91421 8.25 8.5 8.25C8.08579 8.25 7.75 7.91421 7.75 7.5C7.75 5.98122 8.98122 4.75 10.5 4.75C12.0188 4.75 13.25 5.98122 13.25 7.5C13.25 8.04634 13.0899 8.55757 12.8138 8.98663C12.6409 9.25537 12.4387 9.51194 12.2523 9.74363C12.2182 9.78601 12.1847 9.82749 12.1518 9.86825C11.9971 10.0597 11.8551 10.2354 11.7239 10.4158C11.4003 10.8605 11.25 11.1947 11.25 11.5V12C11.25 12.4142 10.9142 12.75 10.5 12.75C10.0858 12.75 9.75 12.4142 9.75 12V11.5C9.75 10.7007 10.1424 10.0398 10.511 9.53325C10.6667 9.31923 10.8373 9.10814 10.9925 8.91619C11.0236 8.87775 11.054 8.84007 11.0836 8.80329C11.2688 8.57313 11.4265 8.37065 11.5524 8.17495C11.6774 7.98068 11.75 7.74996 11.75 7.5C11.75 6.80964 11.1904 6.25 10.5 6.25Z"
+                      fill="fill-current"
+                    />
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M10.5 13.75C10.9142 13.75 11.25 14.0858 11.25 14.5V15.5C11.25 15.9142 10.9142 16.25 10.5 16.25C10.0858 16.25 9.75 15.9142 9.75 15.5V14.5C9.75 14.0858 10.0858 13.75 10.5 13.75Z"
+                      fill="fill-current"
+                    />
+                  </svg>
+
+                  <span className="sr-only">
+                    <i className="fa fa-square" aria-hidden="true"></i>
+                  </span>
+                </NavLink>
+              </TooltipTrigger>
+              <TooltipContent side="right">
+                <i className="fa fa-square" aria-hidden="true"></i>
+              </TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </div>

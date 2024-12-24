@@ -5,4 +5,5 @@ export const routes = {
   notifications: "/notifications",
   profile: "/profile",
   settings: "/settings",
+  faqs: "/faqs",
 };

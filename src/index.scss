@@ -9,7 +9,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+html {
+  transition: 0.4s all ease;
+}
 body {
   margin: 0;
   padding: 0;
@@ -22,7 +24,6 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   scroll-behavior: smooth;
-  transition: 0.4s all ease;
 }
 
 .required {

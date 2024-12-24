@@ -8,6 +8,7 @@ import Inbox from "@/Pages/Inbox/Inbox";
 import Notifications from "@/Pages/Notifications/Notifications";
 import Profile from "@/Pages/Profile/Profile";
 import Settings from "@/Pages/Settings/Settings";
+import Faqs from "@/Pages/Faqs/Faqs";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             ></Route>
             <Route path={routes.profile} element={<Profile />}></Route>
             <Route path={routes.settings} element={<Settings />}></Route>
+            <Route path={routes.faqs} element={<Faqs />}></Route>
           </Route>
         </Routes>
       </ThemeProvider>
